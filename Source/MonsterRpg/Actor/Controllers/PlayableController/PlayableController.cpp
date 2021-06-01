@@ -6,6 +6,8 @@
 #include "Single/GameInstance/MRPGGameInst.h"
 #include "Single/PlayerManager/PlayerManager.h"
 
+#include "Single/PlayerManager/AbilitySystem/AbilitySystem.h"
+
 #include "Widget/UIControllerWidget/UIControllerWidget.h"
 
 APlayableController::APlayableController()
@@ -39,10 +41,19 @@ void APlayableController::SetupInputComponent()
 
 	InputComponent->BindAxis(TEXT("MouseX"), this, &APlayableController::MouseXInput);
 	InputComponent->BindAxis(TEXT("MouseY"), this, &APlayableController::MouseYInput);
+	InputComponent->BindAction(TEXT("OpenAbilityWnd"), EInputEvent::IE_Pressed,
+		GetWndToggler(), &UWndTogglerComponent::ToggleWnd<UAbilitySystem>);
 }
 
 void APlayableController::RegisterToggleEvent()
 {
+	FToggleEvent playerInventoryWndToggleEvent;
+	playerInventoryWndToggleEvent.BindLambda(
+		[this]() {
+			GetManager(UPlayerManager)->GetAbilitySystem()->
+				ToggleAbilityListWnd(GetWidgetControllerWidget());
+		});
+	GetWndToggler()->RegisterToggleEvent<UAbilitySystem>(playerInventoryWndToggleEvent);
 }
 
 void APlayableController::MouseXInput(float axis)

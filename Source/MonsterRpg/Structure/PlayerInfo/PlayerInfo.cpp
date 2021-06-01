@@ -7,6 +7,4 @@ FPlayerInfo::FPlayerInfo()
 	Atk = 30.0f;
 	
 	Critical = 10.0f;
-	
-	ClassCode = FName(TEXT("0001"));
 }

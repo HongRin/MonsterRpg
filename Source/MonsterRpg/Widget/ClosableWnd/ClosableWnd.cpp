@@ -74,7 +74,6 @@ void UClosableWnd::CloseAllChildWnd()
 					/*closableWndInstanceToClose = */ childWnd);
 			}
 		}
-
 		ChildWnds.Empty();
 	}
 }

@@ -13,13 +13,16 @@ class MONSTERRPG_API UPlayerManager : public UManagerClass
 
 private:
 	UPROPERTY()
-		class APlayableController* PlayableController;
+	class APlayableController* PlayableController;
 
 	UPROPERTY()
-		class APlayableCharacter* PlayableCharacter;
+	class APlayableCharacter* PlayableCharacter;
 
 	UPROPERTY()
-		FPlayerInfo PlayerInfo;
+	FPlayerInfo PlayerInfo;
+
+	UPROPERTY()
+	class UAbilitySystem* AbilitySystem;
 
 
 public:
@@ -41,5 +44,8 @@ public:
 
 	FORCEINLINE FPlayerInfo* GetPlayerInfo()
 	{ return &PlayerInfo; }
+
+	FORCEINLINE class UAbilitySystem* GetAbilitySystem() const
+	{ return AbilitySystem; }
 
 };

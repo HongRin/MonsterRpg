@@ -24,10 +24,6 @@ public:
 	UPROPERTY()
 	float Critical;
 
-	// 캐릭터의 유형을 나타내는 코드입니다.
-	UPROPERTY()
-	FName ClassCode;
-
 	UPROPERTY()
 	FName SkillReinforceCode;
 

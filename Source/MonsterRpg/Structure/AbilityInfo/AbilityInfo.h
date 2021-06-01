@@ -28,10 +28,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<EAbilityType> AbilityTypes;
 
-	// 캐릭터 유형 코드
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName ClassCode;
-
 	// 능력 증가량
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<float> IncreaseValue;
@@ -45,5 +41,5 @@ public:
 	FText AbilityDescription;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	bool IsGain = true;
+	bool IsVeiw = false;
 };
